@@ -11,12 +11,12 @@
   <name>Fugue Icon Collection</name>
   <description>WebJar for Fugue Icon Collection</description>
   
-      <url>http://webjars.org</url>
+    <url>http://webjars.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstream.url>http://p.yusukekamiyamane.com/icons/downloads/fugue-icons-${project.version}.zip</upstream.url>
-        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${version.unrevise}</destDir>
+        <upstream.url>http://p.yusukekamiyamane.com/icons/downloads/fugue-icons-${version.unsnapshot}.zip</upstream.url>
+        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${project.version}</destDir>
     </properties>
 
     <developers>
@@ -68,13 +68,13 @@
                         <goals><goal>run</goal></goals>
                         <configuration>
                             <target>
-                                <echo message="download archive"/>
-                                <get src="${upstream.url}" dest="${project.build.directory}/${project.artifactId}.zip"/>
-                                <echo message="unzip archive"/>
-                                <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}/icons"/>
-                                <echo message="moving resources"/>
+                                <echo message="download archive" />
+                                <get src="${upstream.url}" dest="${project.build.directory}/${project.artifactId}.zip" />
+                                <echo message="unzip archive" />
+                                <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}/icons" />
+                                <echo message="moving resources" />
                                 <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/icons"/>
+                                    <fileset dir="${project.build.directory}/icons" />
                                 </move>
                             </target>
                         </configuration>
@@ -102,5 +102,4 @@
         </plugins>
     </build>
 
-  
 </project>
